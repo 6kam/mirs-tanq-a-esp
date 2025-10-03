@@ -71,6 +71,9 @@ float prev_l_err = 0;
 double vlt_1 = 0;
 double vlt_2 = 0;
 
+//WatchDog用
+uint32_t lastCalledAt;
+
 void setup() {
   ros_setup();
 
