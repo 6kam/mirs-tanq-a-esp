@@ -1,8 +1,8 @@
 //エンコーダ用
-#define PIN_ENC_A_L 39
-#define PIN_ENC_B_L 36
-#define PIN_ENC_A_R 35
-#define PIN_ENC_B_R 34
+#define PIN_ENC_A_L 4
+#define PIN_ENC_B_L 5
+#define PIN_ENC_A_R 13
+#define PIN_ENC_B_R 14
 
 //足回り用
 #define PIN_DIR_R   25
