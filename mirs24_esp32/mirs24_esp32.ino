@@ -67,10 +67,6 @@ float l_err_sum = 0;
 float prev_r_err = 0;
 float prev_l_err = 0;
 
-//電圧
-double vlt_1 = 0;
-double vlt_2 = 0;
-
 //WatchDog用
 uint32_t lastCalledAt;
 
@@ -79,7 +75,6 @@ void setup() {
 
   encoder_open();
   vel_ctrl_set();
-  vlt_setup();
   
   delay(500);
 }

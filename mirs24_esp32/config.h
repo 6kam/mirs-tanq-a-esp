@@ -10,13 +10,8 @@
 #define PIN_DIR_L   32
 #define PIN_PWM_L   33
 
-//バッテリー用
-#define PIN_BATT_1  27
-#define PIN_BATT_2  28
-
-//絶対に設定しろ!!!!!!!
+//ROS用設定
 #define ROS_DOMAIN_ID 90
-
 #define WATCHDOG_TIMEOUT 1000
 
 //足回り速度制御用

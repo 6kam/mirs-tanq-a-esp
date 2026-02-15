@@ -8,8 +8,6 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
     //エンコーダーデータを格納
     enc_msg.data.data[0] = count_l;
     enc_msg.data.data[1] = count_r;
-    //電圧観測
-    vlt_watch(); 
     // watchdog
     if( (millis() - lastCalledAt) > WATCHDOG_TIMEOUT){
       r_vel_cmd = 0;
@@ -18,10 +16,7 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
 
     curr_vel_msg.data.data[0] = l_vel;
     curr_vel_msg.data.data[1] = r_vel;
-    vlt_msg.data.data[0] = l_vel;
-    vlt_msg.data.data[1] = r_vel;
     rcl_publish(&enc_pub, &enc_msg, NULL);
-    rcl_publish(&vlt_pub, &vlt_msg, NULL);
     rcl_publish(&curr_vel_pub, &curr_vel_msg, NULL);
   }
 }
