@@ -9,9 +9,9 @@ static void enc_change_l() {
   int32_t b_curr = digitalRead(PIN_ENC_B_L);
 
   if(a_curr == b_curr){
-    count_l++;
-  }else{
     count_l--;
+  }else{
+    count_l++;
   }
 }
 
@@ -20,9 +20,9 @@ static void enc_change_r() {
   int32_t b_curr = digitalRead(PIN_ENC_B_R);
 
   if(a_curr == b_curr){
-    count_r--;
-  }else{
     count_r++;
+  }else{
+    count_r--;
   }
 }
 
