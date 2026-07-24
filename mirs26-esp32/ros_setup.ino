@@ -6,8 +6,9 @@ void ros_setup(){
   allocator = rcl_get_default_allocator();
 
   //nodeの作成とros_domein_idの作成
-  rosid_setup_jazzy();
   //rosid_setup_foxy();
+  rosid_setup_humble();
+  //rosid_setup_jazzy();
 
   //サブスクライバ、パブリッシャー、サービスの宣言
   rclc_publisher_init_default(
@@ -86,7 +87,7 @@ void rosid_setup_foxy(){
 }
 */
 
-void rosid_setup_jazzy(){
+void rosid_setup_humble(){
   rcl_init_options_t init_options;
   init_options = rcl_get_zero_initialized_init_options();
   size_t domain_id = ROS_DOMAIN_ID;
@@ -98,3 +99,13 @@ void rosid_setup_jazzy(){
   // create node
   rclc_node_init_default(&node, "ESP32_node", "", &support);
 }
+
+/*
+void rosid_setup_jazzy(){
+  rcl_node_options_t node_ops;
+  node_ops = rcl_node_get_default_options();
+  //node_ops.domain_id = ROS_DOMAIN_ID;
+  rclc_support_init(&support, 0, NULL, &allocator);
+  rclc_node_init_with_options(&node, "ESP32_node", "", &support, &node_ops);
+}
+*/
