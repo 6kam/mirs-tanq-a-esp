@@ -6,7 +6,7 @@ void ros_setup(){
   allocator = rcl_get_default_allocator();
 
   //nodeの作成とros_domein_idの作成
-  rosid_setup_humble();
+  rosid_setup_jazzy();
   //rosid_setup_foxy();
 
   //サブスクライバ、パブリッシャー、サービスの宣言
@@ -86,7 +86,7 @@ void rosid_setup_foxy(){
 }
 */
 
-void rosid_setup_humble(){
+void rosid_setup_jazzy(){
   rcl_init_options_t init_options;
   init_options = rcl_get_zero_initialized_init_options();
   size_t domain_id = ROS_DOMAIN_ID;
