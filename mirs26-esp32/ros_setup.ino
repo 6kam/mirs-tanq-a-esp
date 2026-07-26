@@ -104,7 +104,7 @@ void rosid_setup_humble(){
 void rosid_setup_jazzy(){
   rcl_node_options_t node_ops;
   node_ops = rcl_node_get_default_options();
-  //node_ops.domain_id = ROS_DOMAIN_ID;
+  node_ops.domain_id = ROS_DOMAIN_ID;
   rclc_support_init(&support, 0, NULL, &allocator);
   rclc_node_init_with_options(&node, "ESP32_node", "", &support, &node_ops);
 }
