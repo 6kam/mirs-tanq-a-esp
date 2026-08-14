@@ -8,7 +8,6 @@ void ros_setup(){
   //nodeの作成とros_domein_idの作成
   //rosid_setup_foxy();
   rosid_setup_humble();
-  //rosid_setup_jazzy();
 
   //サブスクライバ、パブリッシャー、サービスの宣言
   rclc_publisher_init_default(
@@ -16,6 +15,13 @@ void ros_setup(){
     &node,
     ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32MultiArray),
     "/encoder"
+  );
+
+  rclc_publisher_init_default(
+    &vlt_pub,
+    &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float64MultiArray),
+    "/vlt"
   );
 
   rclc_publisher_init_default(
@@ -77,15 +83,14 @@ void ros_setup(){
 /*    humble以降の場合はrosid_setup_humble()    */
 /*    多分コンパイラの関係。このプログラムの作成者のコンパイル環境はhumbleなので基本的にはrosid_setup_humbleの仕様を推奨 */
 /*    ライブラリを再コンパイルする際は環境に合わせて設定するように　*/
-/*
-void rosid_setup_foxy(){
-  rcl_node_options_t node_ops;
-  node_ops = rcl_node_get_default_options();
-  //node_ops.domain_id = ROS_DOMAIN_ID;
-  rclc_support_init(&support, 0, NULL, &allocator);
-  rclc_node_init_with_options(&node, "ESP32_node", "", &support, &node_ops);
-}
-*/
+
+// void rosid_setup_foxy(){
+//   rcl_node_options_t node_ops;
+//   node_ops = rcl_node_get_default_options();
+//   //node_ops.domain_id = ROS_DOMAIN_ID;
+//   rclc_support_init(&support, 0, NULL, &allocator);
+//   rclc_node_init_with_options(&node, "ESP32_node", "", &support, &node_ops);
+// }
 
 void rosid_setup_humble(){
   rcl_init_options_t init_options;
@@ -99,13 +104,3 @@ void rosid_setup_humble(){
   // create node
   rclc_node_init_default(&node, "ESP32_node", "", &support);
 }
-
-/*
-void rosid_setup_jazzy(){
-  rcl_node_options_t node_ops;
-  node_ops = rcl_node_get_default_options();
-  node_ops.domain_id = ROS_DOMAIN_ID;
-  rclc_support_init(&support, 0, NULL, &allocator);
-  rclc_node_init_with_options(&node, "ESP32_node", "", &support, &node_ops);
-}
-*/
