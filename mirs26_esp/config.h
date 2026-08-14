@@ -14,6 +14,10 @@
 #define ROS_DOMAIN_ID 90
 #define WATCHDOG_TIMEOUT 1000
 
+//バッテリー用
+#define PIN_BATT_1  27
+#define PIN_BATT_2  28
+
 //足回り速度制御用
 double RKP = 80.0;
 double RKI = 30.0;
