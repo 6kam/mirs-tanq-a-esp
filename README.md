@@ -1,18 +1,30 @@
+# mirs_esp
 
-ros2 humble用
-arduino ide or arduino cli用
+ROS 2 Humble向け、Arduino IDE / Arduino CLI用のESP32ファームウェアです。
 
-ESP32でmicro_ros_arduinoを使うプログラム。mirs240xの不具合の修正版
+## Arduino IDEでの書き込み
 
-Arduino IDE に以下のソースコード、ライブラリ、ボードマネージャーを導入します。
+### 1. ソースコードを取得
 
-- ESP32 用ソースコード：[mirs_esp](https://github.com/mirs260x/mirs_esp)
-（参考：[mirs240x/mirs24_esp32](https://github.com/mirs240x/mirs24_esp32.git)）
+```bash
+git clone https://github.com/mirs260x/mirs_esp.git
+```
 
-- micro-ROS ライブラリをzipでインポートする：[micro_ros_arduino_mirs240x](https://github.com/mirs240x/micro_ros_arduino_mirs240x)
+### 2. micro-ROSライブラリを追加
 
-- ボードマネージャは esp32（Espressif Systems著）バージョン 2.x 系を導入し、導入後、ボードはESP32ならば **ESP32 Dev Module** を選択してください。
+[micro_ros_arduino_mirs240x](https://github.com/mirs240x/micro_ros_arduino_mirs240x) をZIPでダウンロードし、Arduino IDEの **Sketch → Include Library → Add .ZIP Library...** から追加します。
 
-esp32を接続し、ソースコードをコンパイル、送信してください。
+### 3. ボードを設定
 
-ros2で通信するにはmicro_ros_agentパッケージが必要になります。
+Arduino IDEのボードマネージャで、Espressif Systemsの `esp32` 2.x系をインストールします。使用ボードは **ESP32 Dev Module** を選択します。
+
+### 4. 書き込み
+
+ESP32を接続し、`mirs_esp` のソースコードを開いてコンパイル・書き込みします。
+
+## ROS 2との接続
+
+ESP32とROS 2をmicro-ROSで接続するには、ROS 2側でmicro-ROS Agentを起動します。Agentの起動方法やDockerの操作は、それぞれのリポジトリを参照してください。
+
+- ROS 2パッケージの使い方: [mirs](https://github.com/mirs260x/mirs)
+- Dockerの起動・終了: [mirs_container](https://github.com/mirs260x/mirs_container)
